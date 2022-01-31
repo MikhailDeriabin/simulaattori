@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="600.0" minWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.simuMainGUI">
+   <children>
+      <MenuBar layoutX="19.0" layoutY="13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane layoutY="38.0" prefHeight="562.0" prefWidth="262.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="27.0">
+         <children>
+            <VBox fx:id="asetusVBox" prefHeight="573.0" prefWidth="264.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="Simulointiaika:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="aikaTF" />
+                  <Label text="Viive:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="viiveTF" />
+                  <Label layoutX="10.0" layoutY="106.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="58.0" text="Ruokalinjastojen määrä:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="ruokaPlus" alignment="CENTER" mnemonicParsing="false" onAction="#lisaaRuokalinjasto" prefHeight="30.0" prefWidth="75.0" text="Lisää" />
+                  <Label layoutX="10.0" layoutY="129.0" text="Kassojen määrä:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="kassaPlus" alignment="CENTER" mnemonicParsing="false" onAction="#lisaaKassa" prefHeight="30.0" prefWidth="75.0" text="Lisää" />
+                  <Label layoutX="10.0" layoutY="177.0" text="IP-Kassojen määrä:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="ipKassaPlus" alignment="CENTER" mnemonicParsing="false" onAction="#lisaaIPKassa" prefHeight="30.0" prefWidth="75.0" text="Lisää" />
+                  <Text fx:id="aikaCount" strokeType="OUTSIDE" strokeWidth="0.0" text="Aikaa kulunut: ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <ProgressBar fx:id="progressbar" prefHeight="20.0" prefWidth="261.0" progress="0.0" />
+               </children>
+            </VBox>
+            <Button fx:id="asiakkaatBtn" mnemonicParsing="false" onAction="#avaaAsiakasIkkuna" prefHeight="30.0" prefWidth="75.0" style="-fx-cursor: HAND;" text="Asiakkaat" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
+            <Button fx:id="nopeutaBtn" mnemonicParsing="false" onAction="#nopeuta" prefHeight="30.0" prefWidth="75.0" style="-fx-cursor: HAND;" text="Nopeuta" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="93.0" />
+            <Button fx:id="hidastaBtn" mnemonicParsing="false" onAction="#hidasta" prefHeight="30.0" prefWidth="75.0" style="-fx-cursor: HAND;" text="Hidasta" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="kaynnistaBtn" mnemonicParsing="false" onAction="#kaynnistaSimulaatio" style="-fx-cursor: HAND;" text="Käynnistä" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
+      <Button fx:id="tyhjennaBtn" layoutX="728.0" layoutY="575.0" mnemonicParsing="false" onAction="#reset" style="-fx-cursor: HAND;" text="Tyhjennä" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="90.0" />
+      <AnchorPane layoutX="262.0" layoutY="27.0" prefHeight="540.0" prefWidth="538.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+         <children>
+            <Label text="Ruokalinjastot" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Kassat" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <VBox fx:id="ruokaVBox" alignment="TOP_CENTER" layoutY="24.0" prefHeight="510.0" prefWidth="175.0" spacing="5.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="363.0" AnchorPane.topAnchor="25.0" />
+            <VBox fx:id="kassaVBox" alignment="TOP_CENTER" layoutX="269.0" layoutY="27.0" prefHeight="243.0" prefWidth="362.0" spacing="5.0" AnchorPane.bottomAnchor="270.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+            <Label layoutX="325.0" layoutY="280.0" text="IP-Kassat" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="280.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <VBox fx:id="ipKassaVbox" alignment="TOP_CENTER" layoutX="286.0" layoutY="303.0" prefHeight="225.0" prefWidth="362.0" spacing="5.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="303.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

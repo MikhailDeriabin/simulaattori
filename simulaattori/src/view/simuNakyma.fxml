@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.simuMainGUI">
+   <children>
+      <MenuBar layoutX="19.0" layoutY="13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane layoutY="38.0" prefHeight="562.0" prefWidth="262.0" style="-fx-background-color: lightgrey; -fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="27.0">
+         <children>
+            <Button fx:id="nopeutaBtn" mnemonicParsing="false" onAction="#nopeuta" prefHeight="30.0" prefWidth="75.0" style="-fx-cursor: HAND;" text="Nopeuta" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="50.0" />
+            <Button fx:id="hidastaBtn" mnemonicParsing="false" onAction="#hidasta" prefHeight="30.0" prefWidth="75.0" style="-fx-cursor: HAND;" text="Hidasta" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="50.0" />
+            <VBox fx:id="asetusVBox" layoutX="1.0" layoutY="25.0" prefHeight="573.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="Simulointiaika:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="aikaTF" />
+                  <Label text="Viive:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="viiveTF" />
+                  <Label layoutX="10.0" layoutY="106.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="58.0" text="Ruokalinjastojen määrä:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                    <buttons>
+                        <Button alignment="CENTER" mnemonicParsing="false" text="-" />
+                      <Button alignment="CENTER" mnemonicParsing="false" text="+" />
+                    </buttons>
+                  </ButtonBar>
+                  <Label layoutX="10.0" layoutY="129.0" text="Kassojen määrä:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ButtonBar layoutX="10.0" layoutY="152.0" prefHeight="40.0" prefWidth="200.0">
+                     <buttons>
+                        <Button alignment="CENTER" mnemonicParsing="false" text="-" />
+                        <Button alignment="CENTER" mnemonicParsing="false" text="+" />
+                     </buttons>
+                  </ButtonBar>
+                  <Label layoutX="10.0" layoutY="177.0" text="IP-Kassojen määrä:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ButtonBar layoutX="10.0" layoutY="215.0" prefHeight="40.0" prefWidth="200.0">
+                     <buttons>
+                        <Button alignment="CENTER" mnemonicParsing="false" text="-" />
+                        <Button alignment="CENTER" mnemonicParsing="false" text="+" />
+                     </buttons>
+                  </ButtonBar>
+                  <Text fx:id="aikaCount" strokeType="OUTSIDE" strokeWidth="0.0" text="Aikaa kulunut: ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <Button fx:id="kaynnistaBtn" mnemonicParsing="false" onAction="#kaynnistaSimulaatio" style="-fx-cursor: HAND;" text="Käynnistä" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Button fx:id="asiakkaatBtn" layoutX="620.0" layoutY="565.0" mnemonicParsing="false" onAction="#avaaAsiakasIkkuna" prefHeight="25.0" prefWidth="87.0" style="-fx-cursor: HAND;" text="Asiakkaat" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="95.0" />
+      <AnchorPane layoutX="262.0" layoutY="27.0" prefHeight="540.0" prefWidth="538.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+         <children>
+            <Rectangle fx:id="linjasto1" arcHeight="5.0" arcWidth="5.0" fill="#39b513c2" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="120.0" />
+            <Rectangle fx:id="linjasto2" arcHeight="5.0" arcWidth="5.0" fill="#39b513c2" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="25.0" />
+            <Label layoutX="29.0" layoutY="104.0" text="Ruokalinjastot" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="50.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Kassat" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="50.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Rectangle fx:id="kassa1" arcHeight="5.0" arcWidth="5.0" fill="#39b513c2" height="100.0" layoutX="299.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="100.0" AnchorPane.rightAnchor="139.0" AnchorPane.topAnchor="120.0" />
+            <Label layoutX="343.0" layoutY="159.0" prefHeight="23.0" prefWidth="13.0" text="1" AnchorPane.rightAnchor="182.0" AnchorPane.topAnchor="159.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Rectangle fx:id="kassa2" arcHeight="5.0" arcWidth="5.0" fill="#39b513c2" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="120.0" />
+            <Rectangle fx:id="ipKassa1" arcHeight="5.0" arcWidth="5.0" fill="#39b513c2" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="140.0" />
+            <Label layoutX="71.0" layoutY="159.0" prefHeight="23.0" prefWidth="0.0" text="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Rectangle fx:id="ipKassa2" arcHeight="5.0" arcWidth="5.0" fill="#39b513c2" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="15.0" />
+            <Label layoutX="344.0" layoutY="359.0" text="1" AnchorPane.bottomAnchor="158.0" AnchorPane.rightAnchor="186.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="468.0" layoutY="359.0" text="2" AnchorPane.bottomAnchor="158.0" AnchorPane.rightAnchor="59.5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="359.0" text="2" AnchorPane.bottomAnchor="158.0" AnchorPane.leftAnchor="70.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="468.0" layoutY="159.0" text="2" AnchorPane.rightAnchor="59.5" AnchorPane.topAnchor="159.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="372.0" layoutY="290.0" text="IP-Kassat" AnchorPane.bottomAnchor="250.0" AnchorPane.rightAnchor="92.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

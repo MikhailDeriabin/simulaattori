@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="tietokanta.Simulointi" table="simuloinnit" >
+		<id name="id" type="int" column="id">
+			<generator class="native"></generator>
+  		</id> 
+  		
+		<property name="aikaleima" column="aikaleima" type="timestamp"/>
+		
+		<property name="ruokatiskienLkm" column="ruokatiskienLkm" type="int"/>
+		<property name="kassojenLkm" column="kassojenLkm" type="int"/>
+		<property name="ipKassojenLkm" column="ipKassojenLkm" type="int"/>
+		<property name="asiakkaatKerrallaMin" column="asiakkaatKerrallaMin" type="int"/>
+		<property name="asiakkaatKerrallaMax" column="asiakkaatKerrallaMax" type="int"/>
+		
+		<property name="ruokatiskinAikaMin" column="ruokatiskinAikaMin" type="double"/>
+		<property name="ruokatiskinAikaMax" column="ruokatiskinAikaMax" type="double"/>
+		<property name="kassanAikaMin" column="kassanAikaMin" type="double"/>
+		<property name="kassanAikaMax" column="kassanAikaMax" type="double"/>
+		<property name="ipKassanAikaMin" column="ipKassanAikaMin" type="double"/>
+		<property name="ipKassanAikaMax" column="ipKassanAikaMax" type="double"/>
+		
+		<set name="palvelupisteet" table="palvelupisteet" inverse="true" lazy="false" fetch="select" order-by="ppID asc">
+            <key>
+                <column name="simId" not-null="true" />
+            </key>
+            <one-to-many class="simu.model.Palvelupiste" />
+        </set>              		
+	</class>
+
+</hibernate-mapping>

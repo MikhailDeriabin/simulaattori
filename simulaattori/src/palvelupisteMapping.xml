@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="simu.model.Palvelupiste" table="palvelupisteet">
+		<id name="id" type="int" column="id">
+			<generator class="native"></generator>
+  		</id>
+  		
+  		<many-to-one name="simulointi" class="tietokanta.Simulointi" fetch="select">
+            <column name="simId" not-null="true" />
+        </many-to-one>
+  		
+		<property name="ppNimi" column="ppNimi" type="string" />
+		<property name="ppID" column="ppID" type="int" />			
+		
+		<property name="asiakkaidenLkm" column="asiakkaidenLkm" type="int" />
+		<property name="aktiiviaika" column="aktiiviaika" type="double" />
+		<property name="kokoOleskAika" column="kokoOleskAika" type="double" />
+		<property name="kayttoaste" column="kayttoaste" type="double" />
+		<property name="suoritusteho" column="suoritusteho" type="double" />
+		<property name="keskiPalveluaika" column="keskiPalveluaika" type="double" />
+		<property name="keskiLapiMenoAika" column="keskiLapiMenoAika" type="double" />
+		<property name="keskiJononpituus" column="keskiJononpituus" type="double" />
+	</class>
+
+</hibernate-mapping>
